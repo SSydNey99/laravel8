@@ -80,11 +80,10 @@ Route::get("/gallery/cat", function () {
 });
 
 //week 3
-Route::middleware(['auth','role:admin,teacher'])->group(function () {
 Route::get("/teacher" , function (){
 	return view("teacher");
 });
-});
+ 
 
 Route::get("/student" , function (){
 	return view("student");
@@ -172,8 +171,6 @@ Route::delete("/product/{id}", [ProductController::class, "destroy"])->name('pro
 
 Route::resource('/staff', StaffController::class );
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-require __DIR__ . '/auth.php';
+
+
